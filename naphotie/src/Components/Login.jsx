@@ -17,7 +17,9 @@ export default function Login() {
               type="email"
               id="email"
               name="email"
-              placeholder="Gmail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
               required
             />
             <label htmlFor="password">Password:</label>
@@ -25,7 +27,9 @@ export default function Login() {
               type="password"
               id="password"
               name="password"
-              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Create a password"
               required
             />
           </div>
