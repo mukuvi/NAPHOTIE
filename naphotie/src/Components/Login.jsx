@@ -1,7 +1,6 @@
 import { Form, Link } from "react-router-dom";
 import { useState } from "react";
 import VerifyHuman from "./VerifyHuman";
-import { useState } from "react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
