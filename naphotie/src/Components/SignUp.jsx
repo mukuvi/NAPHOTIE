@@ -63,7 +63,7 @@ export default function SignUp() {
 
           <div className="signup-btns">
             <button id="signup-submit-btn" type="submit">
-              <Link to="/"> Sign Up</Link>
+              <Link to="/Home"> Sign Up</Link>
             </button>
             <p className="login-redirect">
               Already have an account? <Link to="/">Log in</Link>
