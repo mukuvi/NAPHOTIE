@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naphotie | Africa's Living Canvas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap");
+
+      :root {
+        --sunset-start: #f59e0b;
+        --sunset-mid: #ef4444;
+        --sunset-end: #7c3aed;
+        --savanna-light: #eab308;
+        --savanna-dark: #b45309;
+        --forest-light: #16a34a;
+        --forest-dark: #065f46;
+      }
+
+      body {
+        font-family: "Raleway", sans-serif;
+        background-color: #f8fafc;
+        scroll-behavior: smooth;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+      }
+
+      .african-sunset {
+        background: linear-gradient(
+          135deg,
+          var(--sunset-start),
+          var(--sunset-mid),
+          var(--sunset-end)
+        );
+      }
+
+      .savanna-texture {
+        background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&auto=format");
+        background-blend-mode: overlay;
+        background-color: rgba(234, 179, 8, 0.2);
+      }
+
+      .wildlife-card {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .wildlife-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .animal-avatar {
+        clip-path: circle(50% at 50% 50%);
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        transition: all 0.3s ease;
+      }
+
+      .animal-avatar:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+      }
+
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .floating {
+        animation: floating 8s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      /* Safari style scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--forest-light), var(--forest-dark));
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(var(--savanna-light), var(--savanna-dark));
+      }
+
+      .typewriter {
+        overflow: hidden;
+        border-right: 3px solid var(--forest-light);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 2px;
+        animation: typing 3.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--forest-light);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-gray-800">
+    <!-- Animated Safari Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <div
+              class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-green-600 flex items-center justify-center text-white"
+            >
+              <i class="fas fa-leaf text-xl"></i>
+            </div>
+            <h1
+              class="text-2xl font-bold bg-gradient-to-r from-amber-600 to-green-700 bg-clip-text text-transparent"
+            >
+              NAPHOTIE
+            </h1>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="relative group">
+              <span class="text-gray-700 group-hover:text-amber-600 transition"
+                >Explore</span
+              >
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a href="#" class="relative group">
+              <span class="text-gray-700 group-hover:text-amber-600 transition"
+                >Wildlife</span
+              >
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a href="#" class="relative group">
+              <span class="text-gray-700 group-hover:text-amber-600 transition"
+                >Flora</span
+              >
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a href="#" class="relative group">
+              <span class="text-gray-700 group-hover:text-amber-600 transition"
+                >Conservation</span
+              >
+              <span
+                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              class="p-2 rounded-full bg-gray-100 hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+            <button
+              class="hidden md:block px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-green-600 text-white hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+            >
+              Share Your Sighting
+            </button>
+            <button
+              class="md:hidden p-2 rounded-full bg-gray-100 hover:bg-amber-50 text-gray-600 hover:text-amber-600 transition"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <header
+      class="relative h-screen flex items-center justify-center overflow-hidden mt-16"
+    >
+      <div
+        class="parallax-bg absolute inset-0 z-0"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1542038787116-30a21f0e6c8e?w=1800&auto=format');
+        "
+      ></div>
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+      <div class="relative z-20 text-center px-6 max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 typewriter">
+          Africa's Living Canvas
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-8">
+          Discover. Share. Protect. Join the movement documenting Africa's
+          breathtaking biodiversity.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            class="px-8 py-3 rounded-full bg-white text-amber-700 font-bold hover:bg-amber-50 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Start Exploring
+          </button>
+          <button
+            class="px-8 py-3 rounded-full border-2 border-white text-white font-bold hover:bg-white/10 transition-all transform hover:scale-105"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce"
+      >
+        <i class="fas fa-chevron-down text-2xl text-white"></i>
+      </div>
+    </header>
+
+    <!-- Interactive Wildlife Grid -->
+    <section class="py-20 px-6 bg-gradient-to-b from-white to-amber-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Meet Africa's Magnificent Creatures
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Click on any animal to discover their stories and conservation
+            status
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Lion -->
+          <div
+            class="wildlife-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&auto=format"
+                alt="Lion"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-bold text-xl">Lion</h3>
+                <p class="text-sm">Panthera leo</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span
+                  class="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full"
+                  >Vulnerable</span
+                >
+                <button class="text-gray-400 hover:text-amber-600 transition">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p class="text-sm text-gray-600">
+                The iconic king of the savanna, facing habitat loss across
+                Africa.
+              </p>
+            </div>
+          </div>
+
+          <!-- Elephant -->
+          <div
+            class="wildlife-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=600&auto=format"
+                alt="Elephant"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-bold text-xl">Elephant</h3>
+                <p class="text-sm">Loxodonta africana</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 text-red-800 rounded-full"
+                  >Endangered</span
+                >
+                <button class="text-gray-400 hover:text-amber-600 transition">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p class="text-sm text-gray-600">
+                Gentle giants crucial for maintaining savanna ecosystems.
+              </p>
+            </div>
+          </div>
+
+          <!-- Gorilla -->
+          <div
+            class="wildlife-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&auto=format"
+                alt="Gorilla"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-bold text-xl">Gorilla</h3>
+                <p class="text-sm">Gorilla beringei</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span
+                  class="text-xs px-2 py-1 bg-red-100 text-red-800 rounded-full"
+                  >Critically Endangered</span
+                >
+                <button class="text-gray-400 hover:text-amber-600 transition">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p class="text-sm text-gray-600">
+                Our closest relatives, surviving in shrinking mountain forests.
+              </p>
+            </div>
+          </div>
+
+          <!-- Baobab -->
+          <div
+            class="wildlife-card bg-white rounded-xl overflow-hidden shadow-md cursor-pointer"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=600&auto=format"
+                alt="Baobab"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <h3 class="font-bold text-xl">Baobab</h3>
+                <p class="text-sm">Adansonia digitata</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span
+                  class="text-xs px-2 py-1 bg-amber-100 text-amber-800 rounded-full"
+                  >Vulnerable</span
+                >
+                <button class="text-gray-400 hover:text-amber-600 transition">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <p class="text-sm text-gray-600">
+                The ancient "Tree of Life" facing climate change threats.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button
+            class="px-8 py-3 rounded-full bg-gradient-to-r from-amber-500 to-green-600 text-white font-bold hover:shadow-xl transition-all transform hover:-translate-y-1"
+          >
+            Explore All Species
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Safari Experience -->
+    <section
+      class="py-20 px-6 bg-slate-900 text-white relative overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1800&auto=format')] opacity-20"
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+              Immersive <span class="text-amber-400">3D Safari</span> Experience
+            </h2>
+            <p class="text-lg text-slate-300 mb-8">
+              Put on your headphones and step into Africa's wilderness with our
+              interactive 360° tours. Hear the lions roar, birds sing, and feel
+              like you're truly there.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white"
+                  >
+                    <i class="fas fa-vr-cardboard"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="font-bold text-lg">Virtual Reality Ready</h3>
+                  <p class="text-slate-400">
+                    Compatible with most VR headsets for full immersion
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white"
+                  >
+                    <i class="fas fa-soundcloud"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="font-bold text-lg">Binaural Audio</h3>
+                  <p class="text-slate-400">
+                    3D spatial audio that moves with your head
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white"
+                  >
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h3 class="font-bold text-lg">Live Safari Cams</h3>
+                  <p class="text-slate-400">
+                    Watch real-time wildlife from across Africa
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 mt-12 md:mt-0">
+            <div class="relative">
+              <div
+                class="w-full h-80 md:h-96 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center">
+                    <i
+                      class="fas fa-play-circle text-6xl text-amber-500 mb-4"
+                    ></i>
+                    <p class="text-lg font-medium">Start Safari Experience</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-amber-500/20 flex items-center justify-center"
+              >
+                <div
+                  class="w-16 h-16 rounded-full bg-amber-500/40 flex items-center justify-center"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white"
+                  >
+                    <i class="fas fa-expand"></i>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-green-500/40 flex items-center justify-center"
+                >
+                  <div
+                    class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white"
+                  >
+                    <i class="fas fa-volume-up"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conservation Impact Section -->
+    <section class="py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Our <span class="text-green-600">Conservation</span> Impact
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Every shared photo contributes to real-world conservation efforts
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div
+            class="bg-gradient-to-br from-amber-50 to-green-50 rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 text-3xl"
+            >
+              <i class="fas fa-tree"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">12,456</h3>
+            <p class="text-gray-600">Acacia Trees Planted</p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-amber-50 to-green-50 rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-3xl"
+            >
+              <i class="fas fa-paw"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">8,742</h3>
+            <p class="text-gray-600">Animals Protected</p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-amber-50 to-green-50 rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-3xl"
+            >
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">42</h3>
+            <p class="text-gray-600">Local Communities Supported</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-amber-500 to-green-600 rounded-2xl p-8 md:p-12 text-white shadow-xl"
+        >
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-2/3">
+              <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                Ready to Make a Difference?
+              </h3>
+              <p class="text-lg mb-6">
+                Join thousands of nature enthusiasts documenting Africa's
+                biodiversity while supporting conservation efforts.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button
+                  class="px-6 py-3 rounded-full bg-white text-amber-700 font-bold hover:bg-amber-100 transition"
+                >
+                  Sign Up Free
+                </button>
+                <button
+                  class="px-6 py-3 rounded-full border-2 border-white text-white font-bold hover:bg-white/10 transition"
+                >
+                  Learn How It Works
+                </button>
+              </div>
+            </div>
+            <div class="md:w-1/3 flex justify-center">
+              <div class="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1545165375-48aa8b320d7e?w=300&h=300&fit=crop"
+                  alt="Ranger"
+                  class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white shadow-lg"
+                />
+                <div
+                  class="absolute -bottom-4 -right-4 bg-green-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md"
+                >
+                  <i class="fas fa-shield-alt mr-1"></i> Ranger
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="py-20 px-6 bg-slate-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Explore Africa's
+            <span class="text-amber-600">Biodiversity Hotspots</span>
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Click on any region to see recent wildlife sightings
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="relative h-96">
+            <img
+              src="https://images.unsplash.com/photo-1604537466573-5e94508fd243?w=1200&auto=format"
+              alt="Africa Map"
+              class="w-full h-full object-cover"
+            />
+
+            <!-- Interactive Map Points -->
+            <div class="absolute top-1/4 left-1/4">
+              <button
+                class="map-point bg-amber-500 animate-pulse"
+                data-region="serengeti"
+              >
+                <i class="fas fa-lion"></i>
+              </button>
+            </div>
+            <div class="absolute top-1/3 right-1/4">
+              <button
+                class="map-point bg-green-500 animate-pulse"
+                data-region="okavango"
+              >
+                <i class="fas fa-hippo"></i>
+              </button>
+            </div>
+            <div class="absolute bottom-1/4 left-1/3">
+              <button
+                class="map-point bg-blue-500 animate-pulse"
+                data-region="virunga"
+              >
+                <i class="fas fa-gorilla"></i>
+              </button>
+            </div>
+            <div class="absolute bottom-1/3 right-1/3">
+              <button
+                class="map-point bg-red-500 animate-pulse"
+                data-region="kruger"
+              >
+                <i class="fas fa-elephant"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 md:p-8">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+            >
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Serengeti National Park
+                </h3>
+                <p class="text-gray-600">
+                  Tanzania | 14,763 sq km | 3,000 Lions
+                </p>
+              </div>
+              <button
+                class="px-6 py-2 rounded-full bg-gradient-to-r from-amber-500 to-green-600 text-white font-bold hover:shadow-md transition"
+              >
+                View Recent Sightings
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-green-600 flex items-center justify-center text-white"
+              >
+                <i class="fas fa-leaf text-xl"></i>
+              </div>
+              <h3
+                class="text-2xl font-bold bg-gradient-to-r from-amber-500 to-green-600 bg-clip-text text-transparent"
+              >
+                NAPHOTIE
+              </h3>
+            </div>
+            <p class="text-slate-400 mb-6">
+              Documenting Africa's biodiversity through community-powered
+              conservation.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 transition"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Explore</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Wildlife</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Flora</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Conservation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Photography</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Safari Tours</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Community</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Guidelines</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Events</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Stories</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Meetups</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Ambassadors</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Get Involved</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Donate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Volunteer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Partnerships</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Research</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-amber-400 transition"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-slate-500 text-sm mb-4 md:mb-0">
+            © 2023 Naphotie. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-slate-500 hover:text-slate-400 text-sm transition"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-slate-500 hover:text-slate-400 text-sm transition"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="text-slate-500 hover:text-slate-400 text-sm transition"
+              >Cookie Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 space-y-3 z-40">
+      <button
+        class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-green-600 text-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center"
+      >
+        <i class="fas fa-camera text-xl"></i>
+      </button>
+      <button
+        class="w-14 h-14 rounded-full bg-slate-800 text-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center"
+      >
+        <i class="fas fa-comment-alt text-xl"></i>
+      </button>
+    </div>
+
+    <script>
+      // Typewriter effect
+      const typewriterElement = document.querySelector(".typewriter");
+      setTimeout(() => {
+        typewriterElement.style.animation = "none";
+        typewriterElement.style.borderRight = "none";
+      }, 3500);
+
+      // Interactive map points
+      document.querySelectorAll(".map-point").forEach((point) => {
+        point.addEventListener("click", function () {
+          const region = this.getAttribute("data-region");
+          alert(
+            `Showing recent sightings from ${
+              region.charAt(0).toUpperCase() + region.slice(1)
+            } region`
+          );
+        });
+      });
+
+      // Animate elements when they come into view
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll(
+          ".wildlife-card, .map-point"
+        );
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+
+          if (elementPosition < screenPosition) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }
+        });
+      };
+
+      // Set initial state for animation
+      document.querySelectorAll(".wildlife-card, .map-point").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "all 0.6s ease-out";
+      });
+
+      window.addEventListener("scroll", animateOnScroll);
+      animateOnScroll(); // Run once on load
+    </script>
+  </body>
+</html>
