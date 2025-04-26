@@ -1,23 +1,19 @@
-import React from "react";
+export const Hero = ({ Plants }) => {
+  const { image, name, location, Quantity, openSpots } = Plants;
 
-export const Hero = (props) => {
-  let badgeInfo;
-  if (props.Plants.openSpots === 0) {
-    badgeInfo = "GET FREE";
-  } else {
-    badgeInfo = "GO PRO";
-  }
+  const badgeInfo = openSpots === 0 ? "GET FREE" : "GO PRO";
+
   return (
-    <>
-      <div className="hero-sect">
-        <div className="page-file">
-          {badgeInfo && <div className="hero-badge">{badgeInfo}</div>}
-          <img src={`${props.Plants.image}`} />
-          <h3>{props.Plants.name}</h3>
-          <p>{props.Plants.location}</p>
-          <p>Quantity : {props.Plants.Quantity}</p>
-        </div>
+    <div className="hero-sect">
+      <div className="page-file">
+        {badgeInfo && <div className="hero-badge">{badgeInfo}</div>}
+
+        <img src={image} alt={name} />
+
+        <h3>{name}</h3>
+        <p>{location}</p>
+        <p>Quantity: {Quantity ?? "N/A"}</p>
       </div>
-    </>
+    </div>
   );
 };
