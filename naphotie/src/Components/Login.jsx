@@ -51,8 +51,9 @@ export default function Login() {
 
           <div className="login-btns">
             <button id="log-btn" type="submit">
-              Login
+              <Link to="/Home"></Link>
             </button>
+
             <button id="signup-btn">
               <Link to="/Signup">Create Account</Link>
             </button>
