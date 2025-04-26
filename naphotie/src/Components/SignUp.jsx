@@ -66,7 +66,7 @@ export default function SignUp() {
               Sign Up
             </button>
             <p className="login-redirect">
-              Already have an account? <Link to="/login">Log in</Link>
+              Already have an account? <Link to="/">Log in</Link>
             </p>
           </div>
         </form>
