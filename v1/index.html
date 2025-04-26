@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naphotie - Share Nature's Beauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-green-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <div>
+              <a href="#" class="flex items-center py-4 px-2">
+                <i class="fas fa-leaf text-2xl mr-2"></i>
+                <span class="font-semibold text-xl">Naphotie</span>
+              </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-1">
+              <a href="#" class="py-4 px-2 text-green-100 hover:text-white"
+                >Home</a
+              >
+              <a href="#" class="py-4 px-2 text-green-100 hover:text-white"
+                >Explore</a
+              >
+              <a href="#" class="py-4 px-2 text-green-100 hover:text-white"
+                >About</a
+              >
+            </div>
+          </div>
+          <div class="hidden md:flex items-center space-x-3">
+            <a
+              href="#"
+              class="py-2 px-3 bg-green-600 hover:bg-green-700 rounded"
+              >Login</a
+            >
+            <a
+              href="#"
+              class="py-2 px-3 bg-green-500 hover:bg-green-600 rounded"
+              >Sign Up</a
+            >
+          </div>
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="hidden mobile-menu">
+        <ul class="bg-green-700">
+          <li>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-green-600"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-green-600"
+              >Explore</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-green-600"
+              >About</a
+            >
+          </li>
+          <li class="border-t border-green-600">
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-green-600"
+              >Login</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 text-sm hover:bg-green-600"
+              >Sign Up</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-green-700 text-white py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Share Nature's Beauty
+        </h1>
+        <p class="text-xl md:text-2xl mb-8">
+          Post photos of plants and animals, document biodiversity, and connect
+          with nature enthusiasts.
+        </p>
+        <button
+          class="bg-white text-green-800 font-bold py-3 px-8 rounded-full hover:bg-green-100 transition duration-300"
+        >
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <!-- Upload Section -->
+      <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6 text-green-800">
+          Share Your Nature Discovery
+        </h2>
+        <form id="uploadForm">
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="title"
+              >Title</label
+            >
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="title"
+              type="text"
+              placeholder="e.g. Rare Blue Orchid"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="description"
+              >Description</label
+            >
+            <textarea
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="description"
+              rows="4"
+              placeholder="Tell us about your discovery..."
+            ></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="location"
+              >Location</label
+            >
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="location"
+              type="text"
+              placeholder="Where was this taken?"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Upload Image</label
+            >
+            <div class="flex flex-col md:flex-row gap-4">
+              <div
+                class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center flex-1 cursor-pointer hover:bg-green-50"
+                id="fileUpload"
+              >
+                <i class="fas fa-folder-open text-4xl text-green-600 mb-2"></i>
+                <p class="text-gray-600">Choose from files</p>
+                <input
+                  type="file"
+                  id="fileInput"
+                  class="hidden"
+                  accept="image/*"
+                />
+              </div>
+              <div
+                class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center flex-1 cursor-pointer hover:bg-green-50"
+                id="cameraUpload"
+              >
+                <i class="fas fa-camera text-4xl text-green-600 mb-2"></i>
+                <p class="text-gray-600">Take a photo</p>
+              </div>
+            </div>
+            <div id="imagePreview" class="mt-4 hidden">
+              <img
+                id="previewImage"
+                src="#"
+                alt="Preview"
+                class="max-h-64 rounded-lg"
+              />
+              <button
+                type="button"
+                id="removeImage"
+                class="mt-2 text-red-600 hover:text-red-800"
+              >
+                <i class="fas fa-trash mr-1"></i> Remove Image
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Post Discovery
+            </button>
+            <button
+              class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Recent Posts Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 text-green-800">
+          Recent Discoveries
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Post 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src="https://source.unsplash.com/random/600x400/?plant"
+              alt="Nature discovery"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold text-green-800">
+                  Mountain Wildflowers
+                </h3>
+                <span
+                  class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
+                  >Plant</span
+                >
+              </div>
+              <p class="text-gray-600 mb-3">
+                Found these beautiful wildflowers during my hike in the Rocky
+                Mountains...
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <span
+                  ><i class="fas fa-map-marker-alt mr-1"></i> Colorado,
+                  USA</span
+                >
+                <span>2 days ago</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center">
+                <div class="flex space-x-2">
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-thumbs-up"></i> 24
+                  </button>
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-comment"></i> 5
+                  </button>
+                </div>
+                <button class="text-red-600 hover:text-red-800">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src="https://source.unsplash.com/random/600x400/?animal"
+              alt="Nature discovery"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold text-green-800">
+                  Red Fox Sighting
+                </h3>
+                <span
+                  class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded"
+                  >Animal</span
+                >
+              </div>
+              <p class="text-gray-600 mb-3">
+                This curious fox approached me during my morning walk in the
+                woods...
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <span
+                  ><i class="fas fa-map-marker-alt mr-1"></i> Vermont, USA</span
+                >
+                <span>5 days ago</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center">
+                <div class="flex space-x-2">
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-thumbs-up"></i> 42
+                  </button>
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-comment"></i> 8
+                  </button>
+                </div>
+                <button class="text-gray-400 cursor-not-allowed">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <img
+              src="https://source.unsplash.com/random/600x400/?bird"
+              alt="Nature discovery"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="text-xl font-bold text-green-800">
+                  Rare Blue Heron
+                </h3>
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
+                  >Bird</span
+                >
+              </div>
+              <p class="text-gray-600 mb-3">
+                Spotted this magnificent bird at the local wetland preserve...
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <span
+                  ><i class="fas fa-map-marker-alt mr-1"></i> Florida, USA</span
+                >
+                <span>1 week ago</span>
+              </div>
+              <div class="mt-4 flex justify-between items-center">
+                <div class="flex space-x-2">
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-thumbs-up"></i> 37
+                  </button>
+                  <button class="text-green-600 hover:text-green-800">
+                    <i class="far fa-comment"></i> 12
+                  </button>
+                </div>
+                <button class="text-red-600 hover:text-red-800">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Admin Panel Example (visible only to admin users) -->
+    <section id="adminPanel" class="hidden container mx-auto px-4 py-8">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6 text-green-800">Admin Dashboard</h2>
+
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold mb-4">User Management</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+              <thead>
+                <tr class="bg-green-100">
+                  <th class="py-2 px-4 border">Username</th>
+                  <th class="py-2 px-4 border">Email</th>
+                  <th class="py-2 px-4 border">Posts</th>
+                  <th class="py-2 px-4 border">Joined</th>
+                  <th class="py-2 px-4 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="py-2 px-4 border">nature_lover</td>
+                  <td class="py-2 px-4 border">user1@example.com</td>
+                  <td class="py-2 px-4 border">14</td>
+                  <td class="py-2 px-4 border">2023-05-12</td>
+                  <td class="py-2 px-4 border">
+                    <button class="text-red-600 hover:text-red-800 mr-2">
+                      <i class="fas fa-user-slash"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="py-2 px-4 border">wildlife_photog</td>
+                  <td class="py-2 px-4 border">user2@example.com</td>
+                  <td class="py-2 px-4 border">27</td>
+                  <td class="py-2 px-4 border">2023-02-28</td>
+                  <td class="py-2 px-4 border">
+                    <button class="text-red-600 hover:text-red-800 mr-2">
+                      <i class="fas fa-user-slash"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Content Management</h3>
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white">
+              <thead>
+                <tr class="bg-green-100">
+                  <th class="py-2 px-4 border">Post Title</th>
+                  <th class="py-2 px-4 border">Author</th>
+                  <th class="py-2 px-4 border">Date</th>
+                  <th class="py-2 px-4 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="py-2 px-4 border">Rare Orchid Species</td>
+                  <td class="py-2 px-4 border">nature_lover</td>
+                  <td class="py-2 px-4 border">2023-06-15</td>
+                  <td class="py-2 px-4 border">
+                    <button class="text-blue-600 hover:text-blue-800 mr-2">
+                      <i class="fas fa-eye"></i> View
+                    </button>
+                    <button class="text-red-600 hover:text-red-800">
+                      <i class="fas fa-trash"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white py-8 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-xl font-bold mb-4">Naphotie</h3>
+            <p class="max-w-xs">
+              Connecting nature enthusiasts and documenting biodiversity around
+              the world.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h4 class="font-semibold mb-4">Explore</h4>
+              <ul>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Popular Posts</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300"
+                    >Recent Discoveries</a
+                  >
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Categories</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-4">Community</h4>
+              <ul>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Guidelines</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Forum</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Events</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-4">Legal</h4>
+              <ul>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Privacy Policy</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Terms of Use</a>
+                </li>
+                <li class="mb-2">
+                  <a href="#" class="hover:text-green-300">Copyright</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-green-700 mt-8 pt-8 text-center md:text-left"
+        >
+          <p>&copy; 2023 Naphotie. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div
+      id="loginModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-lg p-6 w-full max-w-md">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-bold text-green-800">Login</h3>
+          <button
+            id="closeLoginModal"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="loginEmail"
+              >Email</label
+            >
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="loginEmail"
+              type="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="loginPassword"
+              >Password</label
+            >
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="loginPassword"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="flex items-center justify-between mb-4">
+            <button
+              class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Sign In
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm text-green-600 hover:text-green-800"
+              href="#"
+            >
+              Forgot Password?
+            </a>
+          </div>
+          <div class="text-center">
+            <p class="text-gray-600">
+              Don't have an account?
+              <a href="#" class="text-green-600 hover:text-green-800 font-bold"
+                >Sign up</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Camera Modal -->
+    <div
+      id="cameraModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-lg p-6 w-full max-w-md">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-bold text-green-800">Take a Photo</h3>
+          <button
+            id="closeCameraModal"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mb-4 border-2 border-gray-300 rounded-lg overflow-hidden">
+          <video id="cameraFeed" class="w-full" autoplay></video>
+        </div>
+        <div class="flex justify-center">
+          <button
+            id="captureBtn"
+            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+          >
+            <i class="fas fa-camera mr-2"></i> Capture
+          </button>
+        </div>
+        <canvas id="photoCanvas" class="hidden"></canvas>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.querySelector(".mobile-menu-button");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Image upload functionality
+      const fileUpload = document.getElementById("fileUpload");
+      const fileInput = document.getElementById("fileInput");
+      const cameraUpload = document.getElementById("cameraUpload");
+      const imagePreview = document.getElementById("imagePreview");
+      const previewImage = document.getElementById("previewImage");
+      const removeImage = document.getElementById("removeImage");
+
+      fileUpload.addEventListener("click", () => {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+
+          reader.onload = (event) => {
+            previewImage.src = event.target.result;
+            imagePreview.classList.remove("hidden");
+          };
+
+          reader.readAsDataURL(file);
+        }
+      });
+
+      cameraUpload.addEventListener("click", () => {
+        document.getElementById("cameraModal").classList.remove("hidden");
+      });
+
+      removeImage.addEventListener("click", () => {
+        imagePreview.classList.add("hidden");
+        fileInput.value = "";
+      });
+
+      // Camera functionality
+      const cameraModal = document.getElementById("cameraModal");
+      const closeCameraModal = document.getElementById("closeCameraModal");
+      const cameraFeed = document.getElementById("cameraFeed");
+      const captureBtn = document.getElementById("captureBtn");
+      const photoCanvas = document.getElementById("photoCanvas");
+
+      closeCameraModal.addEventListener("click", () => {
+        cameraModal.classList.add("hidden");
+        stopCamera();
+      });
+
+      cameraUpload.addEventListener("click", async () => {
+        cameraModal.classList.remove("hidden");
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+          });
+          cameraFeed.srcObject = stream;
+        } catch (err) {
+          console.error("Error accessing camera:", err);
+          alert("Could not access the camera. Please check permissions.");
+        }
+      });
+
+      captureBtn.addEventListener("click", () => {
+        const context = photoCanvas.getContext("2d");
+        photoCanvas.width = cameraFeed.videoWidth;
+        photoCanvas.height = cameraFeed.videoHeight;
+        context.drawImage(
+          cameraFeed,
+          0,
+          0,
+          photoCanvas.width,
+          photoCanvas.height
+        );
+
+        // Convert canvas to image and display preview
+        previewImage.src = photoCanvas.toDataURL("image/png");
+        imagePreview.classList.remove("hidden");
+
+        // Close camera modal and stop stream
+        cameraModal.classList.add("hidden");
+        stopCamera();
+      });
+
+      function stopCamera() {
+        if (cameraFeed.srcObject) {
+          cameraFeed.srcObject.getTracks().forEach((track) => track.stop());
+          cameraFeed.srcObject = null;
+        }
+      }
+
+      // Login modal functionality
+      const loginModal = document.getElementById("loginModal");
+      const closeLoginModal = document.getElementById("closeLoginModal");
+
+      // Example: When login button is clicked
+      document.querySelectorAll('a[href="#"]').forEach((link) => {
+        if (link.textContent.includes("Login")) {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            loginModal.classList.remove("hidden");
+          });
+        }
+      });
+
+      closeLoginModal.addEventListener("click", () => {
+        loginModal.classList.add("hidden");
+      });
+
+      // Admin panel toggle (for demo purposes)
+      // In a real app, this would be controlled by user role
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "a" && e.ctrlKey) {
+          document.getElementById("adminPanel").classList.toggle("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
