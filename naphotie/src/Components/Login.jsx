@@ -36,11 +36,9 @@ export default function Login() {
 
           <VerifyHuman />
           <div className="login-btns">
-            <Link to="/Home">
-              <button id="log-btn" type="submit">
-                Login
-              </button>
-            </Link>
+            <button id="log-btn" type="submit">
+              <Link to="/Home">Login </Link>
+            </button>
 
             <Link to="Signup">
               <button id="signup-btn">Sign up</button>
