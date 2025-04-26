@@ -41,7 +41,7 @@ export default function Login() {
           </div>
         </form>
       </div>
-      <small>©2024 Naphotie, All rights reserved.</small>
+      <small>©2025 Naphotie, All rights reserved.</small>
     </>
   );
 }
