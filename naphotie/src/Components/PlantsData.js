@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    image: "src/public/cocoa.jpg",
+    image: "/banana.jpg",
     name: "Cocoa plant",
     location: "Kiambu, kenya",
     openSpots: 0,
