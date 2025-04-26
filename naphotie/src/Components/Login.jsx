@@ -1,4 +1,4 @@
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import VerifyHuman from "./VerifyHuman";
 
